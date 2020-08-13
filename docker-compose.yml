@@ -5,8 +5,11 @@ services:
       context: .
       dockerfile: server.Dockerfile
     networks:
-      - mdb
-      - sig
+      mdb:
+      sig:
+      serv:
+          aliases:
+            - notary-server
     ports:
       - "8080"
       - "4443:4443"
@@ -46,4 +49,6 @@ networks:
   mdb:
     external: false
   sig:
+    external: false
+  serv:
     external: false
